@@ -12,4 +12,4 @@ UPDATE LOG (DATE, AUTHOR):
 
 01/18/2021 Christian Perez: README Document created. 
 
-05/14/2021 Christian Perez: Uploaded the entirety of the current muon simulation. 
+05/14/2021 Christian Perez: Uploaded the entirety of the current muon simulation under the file "muography". 
