@@ -1,0 +1,26 @@
+
+/gps/ang/type iso
+/gps/ang/mintheta 0 deg
+/gps/ang/minphi -180 deg
+/gps/ang/maxtheta 180 deg
+/gps/ang/maxphi 0 deg
+
+# CONE SHAPE 
+#/gps/ang/mintheta 45 deg
+#/gps/ang/minphi -135 deg
+#/gps/ang/maxtheta 135 deg
+#/gps/ang/maxphi -45 deg
+
+/vis/ogl/set/displayListLimit 150000
+#/gps/direction 0 1 0
+/gps/particle alpha
+/gps/pos/type Point
+/gps/pos/centre 0. -2.45 0. cm
+
+
+
+
+/gps/energy 5.546 MeV
+/run/beamOn 1
+ 
+
