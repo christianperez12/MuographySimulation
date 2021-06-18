@@ -1,0 +1,53 @@
+/score/create/boxMesh middle
+/score/mesh/boxSize 2.5 2.5 0.40 cm
+/score/mesh/nBin 1 1 1
+/score/mesh/translate/xyz 0. 0. 0. cm
+
+/score/quantity/nOfSecondary Secondaries
+/score/quantity/trackLength TrackLength
+/score/filter/particle alphaFilter alpha
+/score/quantity/nOfCollision Collisions
+/score/quantity/nOfTerminatedTrack Terminations
+/score/quantity/cellCharge Charge
+/score/quantity/population Population
+/score/close
+
+########################################
+
+
+/gps/ang/type iso
+/gps/ang/mintheta 0 deg
+/gps/ang/minphi -180 deg
+/gps/ang/maxtheta 180 deg
+/gps/ang/maxphi 0 deg
+
+# CONE SHAPE 
+#/gps/ang/mintheta 45 deg
+#/gps/ang/minphi -135 deg
+#/gps/ang/maxtheta 135 deg
+#/gps/ang/maxphi -45 deg
+
+/vis/ogl/set/displayListLimit 150000
+#/gps/direction 0 1 0
+/gps/particle alpha
+/gps/pos/type Point
+/gps/pos/centre 0. -2.45 0. cm
+
+
+
+
+/gps/energy 5.546 MeV
+/run/beamOn 1
+ 
+
+########################################
+/score/dumpQuantityToFile middle TrackLength alphaTrackLength.txt
+/score/dumpQuantityToFile middle Terminations middleTerminations.txt
+/score/dumpQuantityToFile middle Collisions middleCollisions.txt
+/score/dumpQuantityToFile middle Secondaries middleSecondaries.txt
+
+#/score/colorMap/setMinMax defaultLinearColorMap -10000 10000
+#/score/drawProjection middle Collisions
+
+
+
