@@ -144,6 +144,30 @@ G4VPhysicalVolume* B4dDetectorConstruction::DefineVolumes()
                       false,                 //no boolean operation
                       0,                     //copy number
                       fCheckOverlaps);        //overlaps checking
+	
+	 //     
+  // Envelope
+  //  
+	  G4Material* env_mat = nist->FindOrBuildMaterial("G4_AIR");
+
+	
+  G4Box* solidEnv =    
+    new G4Box("Envelope",                    //its name
+        2.49*cm, 2.49*cm, 4.99*mm); //its size
+      
+  G4LogicalVolume* logicEnv =                         
+    new G4LogicalVolume(solidEnv,            //its solid
+                        env_mat,             //its material
+                        "Envelope");         //its name
+               
+  new G4PVPlacement(0,                       //no rotation
+                    G4ThreeVector(0*cm, 5*cm, 0*cm),         //at (0,0,0)
+                    logicEnv,                //its logical volume
+                    "Envelope",              //its name
+                    logicWorld,              //its mother  volume
+                    false,                   //no boolean operation
+                    0,                       //copy number
+                    checkOverlaps);          //overlaps checking */
                       
                          G4Material* granite_mat = nist->FindOrBuildMaterial("G4_AIR");
                     
@@ -160,10 +184,10 @@ G4VPhysicalVolume* B4dDetectorConstruction::DefineVolumes()
                                    
   G4VPhysicalVolume* physGranite = 
     new G4PVPlacement(0,                     //no rotation
-                      G4ThreeVector(0, 5*cm, 0),       //at (0,0,0)
+                      G4ThreeVector(0, 0, 0),       //at (0,0,0)
                       logicGranite,            //its logical volume
                       "Granite",               //its name
-                      logicWorld,                     //its mother  volume
+                      logicEnv,                     //its mother  volume
                       false,                 //no boolean operation
                       0,                     //copy number
                       fCheckOverlaps);        //overlaps checking 
@@ -191,27 +215,7 @@ G4VPhysicalVolume* B4dDetectorConstruction::DefineVolumes()
                       fCheckOverlaps);        //overlaps checking 
 
  
-                      
-  //     
-  // Envelope
-  //  
- /* G4Box* solidEnv =    
-    new G4Box("Envelope",                    //its name
-        env_sizeXY, env_sizeXY, env_sizeZ); //its size
-      
-  G4LogicalVolume* logicEnv =                         
-    new G4LogicalVolume(solidEnv,            //its solid
-                        env_mat,             //its material
-                        "Envelope");         //its name
-               
-  new G4PVPlacement(0,                       //no rotation
-                    G4ThreeVector(),         //at (0,0,0)
-                    logicEnv,                //its logical volume
-                    "Envelope",              //its name
-                    logicWorld,              //its mother  volume
-                    false,                   //no boolean operation
-                    0,                       //copy number
-                    checkOverlaps);          //overlaps checking */
+            
  
   //     
   // Shape 1
@@ -236,7 +240,7 @@ G4VPhysicalVolume* B4dDetectorConstruction::DefineVolumes()
 					  pos1,       //at (0,0,0)
 					  logicfirstPlate,           //its logical volume
 					  "firstPlate",               //its name
-					  logicWorld,             //its mother  volume
+					  logicEnv,             //its mother  volume
 					  false,                 //no boolean operation
 					  0,                     //copy number
 					  true);         //overlaps checking                     
@@ -257,7 +261,7 @@ G4VPhysicalVolume* B4dDetectorConstruction::DefineVolumes()
 					  pos2,       //at (0,0,0)
 					  logicsecondPlate,           //its logical volume
 					  "secondPlate",               //its name
-					  logicWorld,             //its mother  volume
+					  logicEnv,             //its mother  volume
 					  false,                 //no boolean operation
 					  0,                     //copy number
 					  true);         //overlaps checking 
@@ -284,7 +288,7 @@ G4VPhysicalVolume* B4dDetectorConstruction::DefineVolumes()
 
    
 
-	// shape Spacer1
+/*	// shape Spacer1
 	G4ThreeVector pos3 = G4ThreeVector(2.4*cm, 7.4*cm, 0*mm);
         G4Material* PLA = nist->FindOrBuildMaterial("G4_PLASTIC_SC_VINYLTOLUENE");
 	
